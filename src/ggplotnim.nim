@@ -275,6 +275,7 @@ proc geom_linerange*(aes: Aesthetics = aes(),
 proc geom_bar*(aes: Aesthetics = aes(),
                data = DataFrame(),
                color = none[Color](), # color of the bars
+               fillColor = none[Color](),
                alpha = none[float](),
                position = "stack",
                stat = "count",
@@ -286,7 +287,7 @@ proc geom_bar*(aes: Aesthetics = aes(),
                           lineWidth = some(1.0), # draw 1 pt wide black line to avoid white pixels
                                                  # between bins at size of exactly 1.0 bin width
                           color = color,
-                          fillColor = color,
+                          fillColor = fillColor,
                           alpha = alpha)
   let gid = incId()
   result = Geom(gid: gid,
